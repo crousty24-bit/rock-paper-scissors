@@ -25,12 +25,28 @@
         console.log(getComputerChoice());
 
         // second func human choice // may change that
-        var userAnswer = function getHumanChoice(){
+        /*var userAnswer = function getHumanChoice(){
             return prompt("Whats your choice : ");
         };
-        console.log(userAnswer())
+        console.log(userAnswer())*/
 
-        
+        // second func human choice 2.0
+        function getHumanChoice() {
+            let answer = prompt("Whats your choice : ");
+                if (answer == 'rock') {
+                    return 'rock';
+                } 
+                else if (answer == 'paper') {
+                    return 'paper';
+                } 
+                else if (answer == 'scissors') {
+                    return 'scissors';
+                }
+                else {
+                    return null;
+                }
+        }
+        console.log(getHumanChoice());
         
 
     </script>
