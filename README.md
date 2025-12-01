@@ -71,5 +71,6 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 
 
 
-* Step 1 is done : get the computure choice is working **✅**
-* Step 2
+* Step 1 is done : get the computer's choice is working **✅**
+* Step 2 is done : get the player's choice is working **✅** (for now..) : 2 func variants
+* Step 3
