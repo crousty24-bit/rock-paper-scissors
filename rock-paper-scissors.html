@@ -6,6 +6,8 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <!-- <button id="playButton">Start game</button>
+    <pre id="log"></pre> -->
     <script>
         // first func computer choice
         function getComputerChoice() {
@@ -20,7 +22,13 @@
                     return 'scissors';
                 }
         }
-        console.log(getComputerChoice());            
+        console.log(getComputerChoice());
+
+        // second func human choice // may change that
+        var userAnswer = function getHumanChoice(){
+            return prompt("Whats your choice : ");
+        };
+        console.log(userAnswer())
 
         
         
