@@ -6,7 +6,7 @@
 
 
 
-We need code to return the computer choice between "rock", "paper", "scissors", randomly. 
+We need code to return the computer choice between "rock", "paper", "scissors", randomly.
 
 We need code to return player's choice.
 
@@ -35,7 +35,7 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 1. **Setup project structure ✅**
 2. **Read assignment carefuly, write your plan ✅**
 3. **Write the solution and the pseudocode ✅**
-4. **Go code each function, one a the time, test it, then go to the next one.**
+4. **Go code each function, one a the time, test it, then go to the next one.✅**
 5. **If something isnt working : problem solving process (debugging) until it's fixed.**
 6. **Make sure everything is in place, playtest it.**
 
@@ -53,9 +53,9 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 4. ###### IF choices are the same, its a tie and sequence repeat
 5. ###### ELSE IF one choice is greater than the other one
 
-###### &nbsp;	- the greater one wins and score 1 point (Computer VS Player score)
+######  	- the greater one wins and score 1 point (Computer VS Player score)
 
-###### &nbsp;	- next sequence
+######  	- next sequence
 
 ###### 6\. REPEAT for 5 rounds then determine the winner (higher score)
 
@@ -73,4 +73,4 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 
 * Step 1 is done : get the computer's choice is working **✅**
 * Step 2 is done : get the player's choice is working **✅** (for now..) : 2 func variants
-* Step 3
+* Step 3 working : addding funct playRound, not working as intended fo now.. 
