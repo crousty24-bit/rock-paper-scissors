@@ -73,4 +73,16 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 
 * Step 1 is done : get the computer's choice is working **✅**
 * Step 2 is done : get the player's choice is working **✅** (for now..) : 2 func variants
-* Step 3 working : addding funct playRound, not working as intended fo now.. 
+* Step 3 is done : func playRound is working **✅** func human choice is case sensible **✅** also returns null if answer not whats expected
+* Step 4 is done : get the player and computer's scores, incr by 1 each time a round is played **✅**
+* Step 5 working on : func game loop => its looping currently but still need to set it for 5 rounds ! 
+* Step 6 
+
+
+
+
+
+
+
+
+
