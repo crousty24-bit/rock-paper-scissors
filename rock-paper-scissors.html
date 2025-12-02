@@ -9,6 +9,11 @@
     <!-- <button id="playButton">Start game</button>
     <pre id="log"></pre> -->
     <script>
+        // get scores
+        let playerScore = 0;
+        let computerScore = 0;
+
+
         // first func computer choice
         function getComputerChoice() {
             let i = Math.floor(Math.random() * 3);
@@ -32,7 +37,7 @@
 
         // second func human choice 2.0
         function getHumanChoice() {
-            let answer = prompt("Whats your choice : ");
+            let answer = prompt("Whats your choice : ").toLowerCase(); //add .toLowerCase for case sensitive
                 if (answer == 'rock') {
                     return 'rock';
                 } 
@@ -47,6 +52,11 @@
                 }
         }
         console.log(getHumanChoice());
+
+        // third func 
+        function playRound (humainChoice, computerChoice) {
+
+        }
         
 
     </script>
