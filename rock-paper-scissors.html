@@ -37,7 +37,7 @@
 
         // second func human choice 2.0
         function getHumanChoice() {
-            let answer = prompt("Whats your choice : ").toLowerCase(); //add .toLowerCase for case sensitive
+            let answer = prompt("Whats your choice : "); //add .toLowerCase for case sensitive (remove for now)
                 if (answer == 'rock') {
                     return 'rock';
                 } 
@@ -48,15 +48,33 @@
                     return 'scissors';
                 }
                 else {
-                    return null;
+                    return undefined;
                 }
         }
         console.log(getHumanChoice());
 
         // third func 
-        function playRound (humainChoice, computerChoice) {
+        function playRound (humanChoice, computerChoice) {
+            //Use these two parameters to take the human and computer choices as arguments
+            if (!humanChoice || !computerChoice) return 'Invalid choice';
 
+            if (humanChoice === computerChoice){
+                return "It's a Tie !";
+            } else if (humanChoice === "rock" && computerChoice === "scissors") {
+                return "You win ! Rock Beats Paper.";
+            } else if (humanChoice === "paper" && computerChoice === "rock") {
+                return "You win ! Paper Beats Rock.";
+            } else if (humanChoice === "scissors" && computerChoice === "paper") {
+                return "You win ! Scissors Beats Paper.";
+            }
+            else { 
+                return `You lose ! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} Beats ${humanChoice}.`;
+            }
         }
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        console.log(playRound(humanSelection, computerSelection));
         
 
     </script>
