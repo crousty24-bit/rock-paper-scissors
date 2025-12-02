@@ -14,20 +14,12 @@
         let computerScore = 0;
 
 
-        // first func computer choice
+        // first func computer choice 2.0, simpler
         function getComputerChoice() {
-            let i = Math.floor(Math.random() * 3);
-                if (i === 0) {
-                   return 'rock';
-                }
-                else if (i === 1) {
-                    return 'paper';
-                }
-                else {
-                    return 'scissors';
-                }
+            const choices = ['rock', 'paper', 'scissors'];
+            return choices [Math.floor(Math.random() * 3)]
         }
-        console.log(getComputerChoice());
+        //console.log(getComputerChoice());
 
         // second func human choice // may change that
         /*var userAnswer = function getHumanChoice(){
@@ -35,46 +27,56 @@
         };
         console.log(userAnswer())*/
 
-        // second func human choice 2.0
+        // second func human choice 3.0 + fix if users input null
         function getHumanChoice() {
-            let answer = prompt("Whats your choice : "); //add .toLowerCase for case sensitive (remove for now)
-                if (answer == 'rock') {
-                    return 'rock';
-                } 
-                else if (answer == 'paper') {
-                    return 'paper';
-                } 
-                else if (answer == 'scissors') {
-                    return 'scissors';
-                }
-                else {
-                    return undefined;
-                }
-        }
-        console.log(getHumanChoice());
+            let answer;
+            do {
+                answer = prompt("Whats your choice ? (rock, paper or scissors)");
 
-        // third func 
+                if (answer === null) {
+                    return null;
+                }
+
+                answer = answer.toLowerCase();
+
+            } while (!['rock', 'paper', 'scissors'].includes(answer));
+
+            return answer;
+        }
+        //console.log(getHumanChoice());
+
+        // third func 2.0
         function playRound (humanChoice, computerChoice) {
-            //Use these two parameters to take the human and computer choices as arguments
-            if (!humanChoice || !computerChoice) return 'Invalid choice';
+            //if (!humanSelection || !computerSelection) return 'Invalid choice';
 
             if (humanChoice === computerChoice){
                 return "It's a Tie !";
-            } else if (humanChoice === "rock" && computerChoice === "scissors") {
-                return "You win ! Rock Beats Paper.";
-            } else if (humanChoice === "paper" && computerChoice === "rock") {
-                return "You win ! Paper Beats Rock.";
-            } else if (humanChoice === "scissors" && computerChoice === "paper") {
-                return "You win ! Scissors Beats Paper.";
-            }
-            else { 
-                return `You lose ! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} Beats ${humanChoice}.`;
+            } 
+            const win = 
+                (humanChoice === 'rock' && computerChoice === 'scissors') ||
+                (humanChoice === 'paper' && computerChoice === 'rock') ||
+                (humanChoice === 'scissors' && computerChoice === 'paper');
+            if (win) {
+                playerScore++;
+                return `You win! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
+            } else {
+                computerScore++;
+                return `You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
             }
         }
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+        // fourth func game loop - 5 rounds
+        let playAgain = true;
 
-        console.log(playRound(humanSelection, computerSelection));
+        while (playAgain) {
+            const humanSelection = getHumanChoice();
+            if (humanSelection === null) break; //exit loop/game 
+            const computerSelection = getComputerChoice();
+
+            console.log(playRound(humanSelection, computerSelection));
+            console.log(`Score - You: ${playerScore} | Computer: ${computerScore}`);
+
+            playAgain = confirm("Do you want to play another round?");
+        }
         
 
     </script>
