@@ -24,7 +24,7 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 
 
 
-# **PLAN**
+# **PLAN |**
 
 
 
@@ -36,8 +36,9 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 2. **Read assignment carefuly, write your plan ✅**
 3. **Write the solution and the pseudocode ✅**
 4. **Go code each function, one a the time, test it, then go to the next one.✅**
-5. **If something isnt working : problem solving process (debugging) until it's fixed.**
-6. **Make sure everything is in place, playtest it.**
+5. **If something isnt working : problem solving process (debugging) until it's fixed.✅**
+6. **Make sure everything is in place, playtest it.✅**
+7. **Come back to this to improve code / GUI (im not ready yet haha)**
 
 
 
@@ -65,9 +66,11 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 
 
 
+*last updated 02/12*
 
 
-# **DIVIDE \& CONQUER**
+
+# **DIVIDE \& CONQUER |**
 
 
 
@@ -75,10 +78,9 @@ Need conditions to compare rock < paper ; scissors > paper, etc.
 * Step 2 is done : get the player's choice is working **✅** (for now..) : 2 func variants
 * Step 3 is done : func playRound is working **✅** func human choice is case sensible **✅** also returns null if answer not whats expected
 * Step 4 is done : get the player and computer's scores, incr by 1 each time a round is played **✅**
-* Step 5 working on : func game loop => its looping currently but still need to set it for 5 rounds ! 
-* Step 6 
-
-
+* Step 5 is done : func game loop for 5 rounds, keeps track of scores incr, declares a winner, then ask to start another game, reseting **✅**
+* Step 6 is done : cleaning code structure, add comments **✅**
+* **Step 7 : will come back to this later on to add screen-display (text, scores, etc.) to improve GUI**
 
 
 

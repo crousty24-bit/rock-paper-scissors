@@ -6,26 +6,13 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <!-- <button id="playButton">Start game</button>
-    <pre id="log"></pre> -->
     <script>
-        // get scores
-        let playerScore = 0;
-        let computerScore = 0;
-
-
         // first func computer choice 2.0, simpler
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
         }
         //console.log(getComputerChoice());
-
-        // second func human choice // may change that
-        /*var userAnswer = function getHumanChoice(){
-            return prompt("Whats your choice : ");
-        };
-        console.log(userAnswer())*/
 
         // second func human choice 3.0 + fix if users input null
         function getHumanChoice() {
@@ -47,8 +34,6 @@
 
         // third func 2.0
         function playRound (humanChoice, computerChoice) {
-            //if (!humanSelection || !computerSelection) return 'Invalid choice';
-
             if (humanChoice === computerChoice){
                 return "It's a Tie !";
             } 
@@ -57,10 +42,8 @@
                 (humanChoice === 'paper' && computerChoice === 'rock') ||
                 (humanChoice === 'scissors' && computerChoice === 'paper');
             if (win) {
-                playerScore++;
                 return `You win! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
             } else {
-                computerScore++;
                 return `You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
             }
         }
@@ -68,17 +51,50 @@
         let playAgain = true;
 
         while (playAgain) {
-            const humanSelection = getHumanChoice();
-            if (humanSelection === null) break; //exit loop/game 
+        // reset per-game
+        playerScore = 0;
+        computerScore = 0;
+        let roundsPlayed = 0;
+
+            while (roundsPlayed < 5) {
+                const humanSelection = getHumanChoice();
+                if (humanSelection === null) {
+                    break; // exit the 5-round loop
+                }
+
             const computerSelection = getComputerChoice();
 
-            console.log(playRound(humanSelection, computerSelection));
-            console.log(`Score - You: ${playerScore} | Computer: ${computerScore}`);
+            const result = playRound(humanSelection, computerSelection);
+            console.log(result);
 
-            playAgain = confirm("Do you want to play another round?");
+            if (result.startsWith("You win")) {
+                playerScore++;
+            } else if (result.startsWith("You lose")) {
+                computerScore++;
+            }
+
+            roundsPlayed++;
+            console.log(`Round ${roundsPlayed}/5 — Score: You ${playerScore} | Computer ${computerScore}`);
+            console.log("-----------------------");
         }
-        
 
+        // If the user cancelled mid-game, stop asking to play again
+        if (!playAgain) break;
+
+        // declare winner after 5 rounds
+        if (playerScore > computerScore) {
+            alert(`You win the 5-round game! Congrats! Final score: ${playerScore} - ${computerScore}`);
+        } else if (computerScore > playerScore) {
+            alert(`You lose the 5-round game. Try again.. Final score: ${playerScore} - ${computerScore}`);
+        } else {
+            alert(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
+        }
+
+        playAgain = confirm("Do you want to play another game?");
+    }
     </script>
 </body>
 </html>
+
+
+
