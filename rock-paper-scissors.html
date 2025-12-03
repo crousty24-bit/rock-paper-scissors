@@ -42,11 +42,14 @@
                 (humanChoice === 'paper' && computerChoice === 'rock') ||
                 (humanChoice === 'scissors' && computerChoice === 'paper');
             if (win) {
-                return `You win! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}.`;
+                return `You win! ${humanChoice[0].toUpperCase() 
+                                + humanChoice.slice(1)} beats ${computerChoice}.`;
             } else {
-                return `You lose! ${computerChoice[0].toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}.`;
-            }
+                return `You lose! ${computerChoice[0].toUpperCase() 
+                                + computerChoice.slice(1)} beats ${humanChoice}.`; 
+            }                     //break line to improve readibility
         }
+        
         // fourth func game loop - 5 rounds
         let playAgain = true;
 
