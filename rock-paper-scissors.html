@@ -84,50 +84,6 @@
             playAgain = confirm("Do you want to play another game?");
             if (!playAgain) break;
         } 
-        //fourth func game loop - 5 rounds
-        /*let playAgain = true;
-
-        while (playAgain) {
-        // reset per-game
-        
-        let roundsPlayed = 0;
-
-            while (roundsPlayed < 5) {
-                const humanSelection = getHumanChoice();
-                if (humanSelection === null) {
-                    break; // exit the 5-round loop
-                }
-
-            const computerSelection = getComputerChoice();
-
-            const result = playRound(humanSelection, computerSelection);
-            console.log(result);
-
-            if (result.startsWith("You win")) {
-                playerScore++;
-            } else if (result.startsWith("You lose")) {
-                computerScore++;
-            }
-
-            roundsPlayed++;
-            console.log(`Round ${roundsPlayed}/5 — Score: You ${playerScore} | Computer ${computerScore}`);
-            console.log("-----------------------");
-        }
-
-        // If the user cancelled mid-game, stop asking to play again
-        if (!playAgain) break;
-
-        // declare winner after 5 rounds
-        if (playerScore > computerScore) {
-            alert(`You win the 5-round game! Congrats! Final score: ${playerScore} - ${computerScore}`);
-        } else if (computerScore > playerScore) {
-            alert(`You lose the 5-round game. Try again.. Final score: ${playerScore} - ${computerScore}`);
-        } else {
-            alert(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
-        }
-
-        playAgain = confirm("Do you want to play another game?");
-    }*/
     </script>
 </body>
 </html>
