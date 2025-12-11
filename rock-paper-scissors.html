@@ -16,18 +16,6 @@
     <div id="results"> </div>
     <div id="score"> </div>
     <script>
-        const btn = document.querySelectorAll("button");
-        const computerChoice = getComputerChoice();
-        const result = playRound();
-        const resultsDiv = document.getElementById("results");
-        let playerScore = 0;
-        let computerScore = 0;
-        const scoreDiv = document.getElementById("score");
-
-        btn.addEventListener("click", () => {
-            const humanChoice = btn.dataset.choice;
-        });
-
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
