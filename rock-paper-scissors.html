@@ -7,14 +7,12 @@
 </head>
 <body>
     <script>
-        // first func computer choice 2.0, simpler
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
         }
         //console.log(getComputerChoice());
 
-        // second func human choice 3.0 + fix if users input null
         function getHumanChoice() {
             let answer;
             do {
@@ -32,7 +30,9 @@
         }
         //console.log(getHumanChoice());
 
-        // third func 2.0
+        let playerScore = 0;
+        let computerScore = 0;
+        
         function playRound (humanChoice, computerChoice) {
             if (humanChoice === computerChoice){
                 return "It's a Tie !";
@@ -47,16 +47,52 @@
             } else {
                 return `You lose! ${computerChoice[0].toUpperCase() 
                                 + computerChoice.slice(1)} beats ${humanChoice}.`; 
-            }                     //break line to improve readibility
+            }                     
         }
-        
-        // fourth func game loop - 5 rounds
+        //console.log(playRound(humanChoice, computerChoice));
         let playAgain = true;
+        while (playAgain) {
+
+            let roundsPlayed = 0;
+            while (playRound()) {
+                const humanChoice = getHumanChoice();
+                if (humanChoice === null) {
+                        break;
+                }
+                const computerChoice = getComputerChoice();
+                const result = playRound(humanChoice, computerChoice);
+                console.log(result);
+
+                if (result.startsWith("You win")) {
+                    playerScore++;
+                } else if (result.startsWith("You lose")) {
+                    computerScore++;
+                }
+
+                roundsPlayed++;
+                console.log(`Round ${roundsPlayed} — Score: You ${playerScore}`
+                                                + `| Computer ${computerScore}`);
+                console.log("-----------------------");
+            }
+            
+       // declare winner : first how scores 5
+            if (playerScore === 5) {
+                alert(`You won! Congrats! Final score: ${playerScore} - ${computerScore}`);
+                break;
+            } else if (computerScore === 5) {
+                alert(`You lose. Try again.. Final score: ${playerScore} - ${computerScore}`);
+                break;
+            }
+
+            playAgain = confirm("Do you want to play another game?");
+            //if (!playAgain) break;
+        } 
+        //fourth func game loop - 5 rounds
+        /*let playAgain = true;
 
         while (playAgain) {
         // reset per-game
-        playerScore = 0;
-        computerScore = 0;
+        
         let roundsPlayed = 0;
 
             while (roundsPlayed < 5) {
@@ -94,7 +130,7 @@
         }
 
         playAgain = confirm("Do you want to play another game?");
-    }
+    }*/
     </script>
 </body>
 </html>
