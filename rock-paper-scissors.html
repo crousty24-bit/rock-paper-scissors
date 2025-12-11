@@ -11,9 +11,8 @@
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
         }
-        //console.log(getComputerChoice());
 
-        function getHumanChoice() {
+        /*function getHumanChoice() {
             let answer;
             do {
                 answer = prompt("Whats your choice ? (rock, paper or scissors)");
@@ -27,8 +26,7 @@
             } while (!['rock', 'paper', 'scissors'].includes(answer));
 
             return answer;
-        }
-        //console.log(getHumanChoice());
+        }*/
 
         function playRound (humanChoice, computerChoice) {
             if (humanChoice === computerChoice){
@@ -47,7 +45,7 @@
             }                     
         }
         //console.log(playRound(humanChoice, computerChoice));
-        let playAgain = true;
+        /*let playAgain = true;
 
         while (playAgain) {
         let playerScore = 0;
@@ -83,7 +81,7 @@
             }
             playAgain = confirm("Do you want to play another game?");
             if (!playAgain) break;
-        } 
+        }*/
     </script>
 </body>
 </html>
