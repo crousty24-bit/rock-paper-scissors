@@ -9,33 +9,29 @@
     <h1> Rock, Paper, Scissors - The Game</h1>
     <p> What's your choice ?</p>
 
-    <button id="playerChoice">Rock</button>
-    <button id="playerChoice">Paper</button>
-    <button id="playerChoice">Scissors</button>
+    <button data-choice="rock">Rock</button>
+    <button data-choice="paper">Paper</button>
+    <button data-choice="scissors">Scissors</button>
 
     <div id="results"> </div>
     <div id="score"> </div>
     <script>
+        const btn = document.querySelectorAll("button");
+        const computerChoice = getComputerChoice();
+        const result = playRound();
+        const resultsDiv = document.getElementById("results");
+        let playerScore = 0;
+        let computerScore = 0;
+        const scoreDiv = document.getElementById("score");
+
+        btn.addEventListener("click", () => {
+            const humanChoice = btn.dataset.choice;
+        });
+
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
         }
-
-        /*function getHumanChoice() {
-            let answer;
-            do {
-                answer = prompt("Whats your choice ? (rock, paper or scissors)");
-
-                if (answer === null) {
-                    return null;
-                }
-
-                answer = answer.toLowerCase();
-
-            } while (!['rock', 'paper', 'scissors'].includes(answer));
-
-            return answer;
-        }*/
 
         function playRound (humanChoice, computerChoice) {
             if (humanChoice === computerChoice){
@@ -53,6 +49,7 @@
                                 + computerChoice.slice(1)} beats ${humanChoice}.`; 
             }                     
         }
+
         //console.log(playRound(humanChoice, computerChoice));
         /*let playAgain = true;
 
