@@ -80,45 +80,6 @@
                                 + computerChoice.slice(1)} beats ${humanChoice}.`; 
             }                     
         }
-
-        //console.log(playRound(humanChoice, computerChoice));
-        /*let playAgain = true;
-
-        while (playAgain) {
-        let playerScore = 0;
-        let computerScore = 0;
-        let roundsPlayed = 0;
-
-            while (playerScore < 5 && computerScore < 5) {
-                const humanChoice = getHumanChoice();
-                if (humanChoice === null) {
-                        break;
-                }
-                const computerChoice = getComputerChoice();
-                const result = playRound(humanChoice, computerChoice);
-                console.log(result);
-
-                if (result.startsWith("You win")) {
-                    playerScore++;
-                } else if (result.startsWith("You lose")) {
-                    computerScore++;
-                }
-            // declare winner : first who scores 5
-                if (playerScore === 5) {
-                    alert(`You won! Congrats! Final score: ${playerScore} - ${computerScore}`);
-                    break;
-                } else if (computerScore === 5) {
-                    alert(`You lose. Try again.. Final score: ${playerScore} - ${computerScore}`);
-                    break;
-                }    
-                roundsPlayed++;
-                console.log(`Round ${roundsPlayed} — Score: You ${playerScore}`
-                                                + `| Computer ${computerScore}`);
-                console.log("-----------------------");
-            }
-            playAgain = confirm("Do you want to play another game?");
-            if (!playAgain) break;
-        }*/
     </script>
 </body>
 </html>
