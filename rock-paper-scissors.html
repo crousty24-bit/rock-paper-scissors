@@ -9,13 +9,27 @@
     <h1> Rock, Paper, Scissors - The Game</h1>
     <p> What's your choice ?</p>
 
-    <button data-choice="rock">Rock</button>
-    <button data-choice="paper">Paper</button>
-    <button data-choice="scissors">Scissors</button>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
 
     <div id="results"> </div>
     <div id="score"> </div>
     <script>
+        let humanChoice;
+        let computerChoice;
+        const divResults = document.getElementById("results");
+        const btn = document.querySelectorAll("button");
+        btn.forEach((button) => {
+            button.addEventListener("click", () => {
+                humanChoice = button.id;
+                computerChoice = getComputerChoice();
+                const result = playRound(humanChoice, computerChoice);
+                divResults.textContent = result;
+            })
+        })
+
+
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             return choices [Math.floor(Math.random() * 3)]
