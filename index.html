@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <h1> Rock, Paper, Scissors - The Game</h1>
+    <p> What's your choice ?</p>
+
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+    <div id="results"> </div>
+    <div id="score"> </div>
+    <script>
+        let humanChoice;
+        let computerChoice;
+        const divResults = document.getElementById("results");
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundsPlayed = 0;
+        const divScore = document.getElementById("score");
+
+        const btn = document.querySelectorAll("button");
+        btn.forEach((button) => {
+            button.addEventListener("click", () => {
+                humanChoice = button.id;
+                computerChoice = getComputerChoice();
+                const result = playRound(humanChoice, computerChoice);
+                divResults.textContent = result;
+                if (result.startsWith("You win")) {
+                    playerScore++;
+                } else if (result.startsWith("You lose")) {
+                    computerScore++;
+                }
+                roundsPlayed++;
+                const scores = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                divScore.textContent = scores;
+                if (playerScore === 5) {
+                    divResults.textContent =(`🎉You won! Congrats! Final score: ${playerScore} - ${computerScore}`);
+                    playerScore = 0;
+                    computerScore = 0;
+                    roundsPlayed = 0;
+                    divScore.textContent = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                } else if (computerScore === 5) {
+                    divResults.textContent =(`💀You lose. Try again.. Final score: ${playerScore} - ${computerScore}`);
+                    playerScore = 0;
+                    computerScore = 0;
+                    roundsPlayed = 0;
+                    divScore.textContent = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                }
+            })
+        })
+
+        function getComputerChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            return choices [Math.floor(Math.random() * 3)]
+        }
+
+        function playRound (humanChoice, computerChoice) {
+            if (humanChoice === computerChoice){
+                return "It's a Tie !";
+            } 
+            const win = 
+                (humanChoice === 'rock' && computerChoice === 'scissors') ||
+                (humanChoice === 'paper' && computerChoice === 'rock') ||
+                (humanChoice === 'scissors' && computerChoice === 'paper');
+            if (win) {
+                return `You win! ${humanChoice[0].toUpperCase() 
+                                + humanChoice.slice(1)} beats ${computerChoice}.`;
+            } else {
+                return `You lose! ${computerChoice[0].toUpperCase() 
+                                + computerChoice.slice(1)} beats ${humanChoice}.`; 
+            }                     
+        }
+    </script>
+</body>
+</html>
+
+
+
