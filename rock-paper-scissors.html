@@ -19,6 +19,12 @@
         let humanChoice;
         let computerChoice;
         const divResults = document.getElementById("results");
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let roundsPlayed = 0;
+        const divScore = document.getElementById("score");
+
         const btn = document.querySelectorAll("button");
         btn.forEach((button) => {
             button.addEventListener("click", () => {
@@ -26,9 +32,32 @@
                 computerChoice = getComputerChoice();
                 const result = playRound(humanChoice, computerChoice);
                 divResults.textContent = result;
+                if (result.startsWith("You win")) {
+                    playerScore++;
+                } else if (result.startsWith("You lose")) {
+                    computerScore++;
+                }
+                roundsPlayed++;
+                const scores = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                divScore.textContent = scores;
+                if (playerScore === 5) {
+                    divResults.textContent =(`🎉You won! Congrats! Final score: ${playerScore} - ${computerScore}`);
+                    playerScore = 0;
+                    computerScore = 0;
+                    roundsPlayed = 0;
+                    divScore.textContent = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                } else if (computerScore === 5) {
+                    divResults.textContent =(`💀You lose. Try again.. Final score: ${playerScore} - ${computerScore}`);
+                    playerScore = 0;
+                    computerScore = 0;
+                    roundsPlayed = 0;
+                    divScore.textContent = `Round ${roundsPlayed} — Score: You ${playerScore}`
+                                    + `| Computer ${computerScore}`;
+                }
             })
         })
-
 
         function getComputerChoice() {
             const choices = ['rock', 'paper', 'scissors'];
